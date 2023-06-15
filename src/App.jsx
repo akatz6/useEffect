@@ -9,17 +9,15 @@ function App() {
 
   useEffect(() => {
     // using axios
-    try {
-      const getHolidays = async () => {
-        const response = await axios.get(
-          "https://date.nager.at/api/v2/publicholidays/2023/US"
-        );
-        const info = response.data;
-        setHoliday(info);
-      };
-    } catch (e) {
-      console.log(e);
-    }
+    // https://www.npmjs.com/package/axios
+
+    const getHolidays = async () => {
+      const response = await axios.get(
+        "https://date.nager.at/api/v2/publicholidays/2023/US"
+      );
+      const info = response.data;
+      setHoliday(info);
+    };
 
     const getRickAndMorty = async () => {
       //using fetch
