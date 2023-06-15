@@ -8,15 +8,18 @@ function App() {
   const [rickAndMorty, setRickAndMorty] = useState([]);
 
   useEffect(() => {
-    // using axios
-    // https://www.npmjs.com/package/axios
-
     const getHolidays = async () => {
-      const response = await axios.get(
-        "https://date.nager.at/api/v2/publicholidays/2023/US"
-      );
-      const info = response.data;
-      setHoliday(info);
+      // using axios
+      // https://www.npmjs.com/package/axios
+      try {
+        const response = await axios.get(
+          "https://date.nager.at/api/v2/publicholidays/2023/US"
+        );
+        const info = response.data;
+        setHoliday(info);
+      } catch (e) {
+        console.log(e);
+      }
     };
 
     const getRickAndMorty = async () => {
